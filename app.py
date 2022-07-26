@@ -128,7 +128,7 @@ def handle_message(event):
         res += ""
         line_bot_api.push_message(event.source.user_id, TextSendMessage(text=res))
     else:
-        if step[event.source.user_id] != 1:
+        if event.source.user_id not in step:
             message = "Hallo apa kamu keren? kalo iya, cuma karen yang bisa jawab pertanyaan ini."
             messgae += "\napa kepanjangan dari FIND ?"
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message))
