@@ -31,7 +31,7 @@ AUTH_ACCESS = 'JmTmVCOK07ASzl4Q9a3zHBbThawecQ3jMFrlYx8fcvlX1AM2yGN7tWm/Xf1L40wzd
 line_bot_api = LineBotApi(AUTH_ACCESS)
 handler = WebhookHandler('b4107213c0cbd7306a04142de4a9be4d')
 
-step = {}
+step = livejson.File("db.json", True, True, 4)
 
 
 @app.route('/')
@@ -123,9 +123,9 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message))
     else:
         if cmd.lower() == "friends is never die" or cmd.lower() == "friend is never die":
-            message = "oke aku kenal kamu, kamu keren temennua alip yang ganteng itu."
+            message = "oke aku kenal kamu, kamu keren temennya alip yang ganteng itu."
             message += "\nSekarang kita masuk ke sessi tanya jawab ya"
-            message += "\nKeren manis, kamu cukup pilih jawaban dengan ketik A, B, ayau C ya..."
+            message += "\nKeren manis, kamu cukup pilih jawaban dengan ketik A, B, atau C ya..."
             message += "\nSoal pertama, siapa yang paling ganteng di FIND"
             message += "\nA. Alif"
             message += "\nB. Martin"
