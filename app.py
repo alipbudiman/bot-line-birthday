@@ -118,6 +118,9 @@ def handle_message(event):
             res += "\nPick up hadiah ulang tahun kamu di link di bawah ini"
             res += "\nhttps://karensbirthdays.herokuapp.com/gift"
             line_bot_api.push_message(event.source.user_id, TextSendMessage(text=res))
+            time.sleep(3)
+            line_bot_api.push_message(event.source.user_id, TextSendMessage(text="Terima kasih telah bermain, selamat ulang tahun Karen . . .\n\nDevelope by FIND\nCreated by Alif Budiman"))
+            del step[event.source.user_id]
         else:
             message = "Pilihan kamu kurang tepa, jangan out of question ya!"
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message))
