@@ -125,7 +125,7 @@ def handle_message(event):
             message = "Pilihan kamu kurang tepa, jangan out of question ya!"
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message))
     else:
-        if cmd.lower() == "friends is never die" or cmd.lower() == "friend is never die":
+        if cmd.lower() == "friends is never die" or cmd.lower() == "friend is never die" or "friendship is never die":
             message = "oke aku kenal kamu, kamu keren temennya alip yang ganteng itu."
             message += "\nSekarang kita masuk ke sessi tanya jawab ya"
             message += "\nKeren manis, kamu cukup pilih jawaban dengan ketik A, B, atau C ya..."
