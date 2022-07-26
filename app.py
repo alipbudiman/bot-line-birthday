@@ -69,9 +69,9 @@ def handle_message(event):
                 cos1 = "Mantap emang alip dabest"
             res = f"{cos1}. Oke, kita masuk ke pertanyaan ke dua ya!!"
             res += "\nDimana letak sekolah kita waktu masih kelas 1 semeter 1 dan 2"
-            res += "\n1. Harmoni"
-            res += "\n2. Gajah mada"
-            res += "\n3. Mangga besar"
+            res += "\nA. Harmoni"
+            res += "\nB. Gajah mada"
+            res += "\nC. Mangga besar"
             line_bot_api.push_message(event.source.user_id, TextSendMessage(text=res))
             step[event.source.user_id] = 2
         elif step[event.source.user_id] == 2 and cmd.lower() in ["a","b","c"]:
@@ -114,7 +114,7 @@ def handle_message(event):
             elif cmd.lower() == "a" or cmd.lower() == "c":
                 line_bot_api.reply_message(event.reply_token,TextSendMessage(text="loh kamu lupa sama mantan? wkwkwk"))
             time.sleep(3)
-            res += "Oke, selamat udah menjawab semua pertanyaan, ini bukan ulangan jadi ga ada nilai-nilai an ya"
+            res = "Oke, selamat udah menjawab semua pertanyaan, ini bukan ulangan jadi ga ada nilai-nilai an ya"
             res += "\nPick up hadiah ulang tahun kamu di link di bawah ini"
             res += "\nhttps://karensbirthdays.herokuapp.com/gift"
             line_bot_api.push_message(event.source.user_id, TextSendMessage(text=res))
