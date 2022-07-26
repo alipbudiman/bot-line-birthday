@@ -54,8 +54,6 @@ def callback():
 def handle_message(event):
     cmd = event.message.text
     message = str(event)
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message))
-    
     
     if cmd.lower() == "friends is never die" or cmd.lower() == "friend is never die":
         message = "oke aku kenal kamu, kamu keren temennua alip yang ganteng itu."
@@ -67,7 +65,7 @@ def handle_message(event):
         message += "\nC. Millenio"
         step[event.source.user_id] = 1
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message))
-    if step[event.source.user_id] == 1 and cmd.lower() in ["a","b","c"]:
+    elif step[event.source.user_id] == 1 and cmd.lower() in ["a","b","c"]:
         if cmd.lower() == "a":
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text="WAH BENER BANGET ALIP YANG PALING GANTENG!!!"))
         elif cmd.lower() == "b":
@@ -86,7 +84,7 @@ def handle_message(event):
         res += "\n3. Mangga besar"
         line_bot_api.push_message(event.source.user_id, TextSendMessage(text=res))
         step[event.source.user_id] = 2
-    if step[event.source.user_id] == 2 and cmd.lower() in ["a","b","c"]:
+    elif step[event.source.user_id] == 2 and cmd.lower() in ["a","b","c"]:
         if cmd.lower() == "a":
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text="WAH BENER BANGET, WAKTU KELAS 1 SEMESTER 1 & 2 KAN SEKOLAH KITA NUMPANG SAMA SEKOLAH SD ORANG WKWKWKW"))
         elif cmd.lower() == "b" or cmd.lower() == "c":
@@ -103,7 +101,7 @@ def handle_message(event):
         res += "\nC. Sasa"
         line_bot_api.push_message(event.source.user_id, TextSendMessage(text=res))
         step[event.source.user_id] = 3
-    if step[event.source.user_id] == 3 and cmd.lower() in ["a","b","c"]:
+    elif step[event.source.user_id] == 3 and cmd.lower() in ["a","b","c"]:
         if cmd.lower() == "c":
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text="Bener bgt, kita dulu suka jajan di depan SD yg ada di deket rumah sasa"))
         elif cmd.lower() == "b" or cmd.lower() == "a":
@@ -120,7 +118,7 @@ def handle_message(event):
         res += "\nC. Jhonatan"
         line_bot_api.push_message(event.source.user_id, TextSendMessage(text=res))
         step[event.source.user_id] = 4
-    if step[event.source.user_id] == 4 and cmd.lower() in ["a","b","c"]:
+    elif step[event.source.user_id] == 4 and cmd.lower() in ["a","b","c"]:
         if cmd.lower() == "b":
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text="Hadeh, bisa-bisanya mau, padahal orangnnya kan baru putus :v"))
         elif cmd.lower() == "a" or cmd.lower() == "c":
