@@ -53,8 +53,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     cmd = event.message.text
-    message = str(event)
-    
+
     if cmd.lower() == "friends is never die" or cmd.lower() == "friend is never die":
         message = "oke aku kenal kamu, kamu keren temennua alip yang ganteng itu."
         message += "\nSekarang kita masuk ke sessi tanya jawab ya"
