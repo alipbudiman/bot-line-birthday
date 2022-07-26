@@ -55,17 +55,7 @@ def handle_message(event):
     cmd = event.message.text
 
     if event.source.user_id in step:
-        if cmd.lower() == "friends is never die" or cmd.lower() == "friend is never die":
-            message = "oke aku kenal kamu, kamu keren temennua alip yang ganteng itu."
-            message += "\nSekarang kita masuk ke sessi tanya jawab ya"
-            message += "\nKeren manis, kamu cukup pilih jawaban dengan ketik A, B, ayau C ya..."
-            message += "\nSoal pertama, siapa yang paling ganteng di FIND"
-            message += "\nA. Alif"
-            message += "\nB. Martin"
-            message += "\nC. Millenio"
-            step[event.source.user_id] = 1
-            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message))
-        elif step[event.source.user_id] == 1 and cmd.lower() in ["a","b","c"]:
+        if step[event.source.user_id] == 1 and cmd.lower() in ["a","b","c"]:
             if cmd.lower() == "a":
                 line_bot_api.reply_message(event.reply_token,TextSendMessage(text="WAH BENER BANGET ALIP YANG PALING GANTENG!!!"))
             elif cmd.lower() == "b":
@@ -132,9 +122,20 @@ def handle_message(event):
             message = "Pilihan kamu kurang tepa, jangan out of question ya!"
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message))
     else:
-        message = "Hallo apa kamu keren? kalo iya, cuma karen yang bisa jawab pertanyaan ini."
-        message += "\napa kepanjangan dari FIND ?"
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message))
+        if cmd.lower() == "friends is never die" or cmd.lower() == "friend is never die":
+            message = "oke aku kenal kamu, kamu keren temennua alip yang ganteng itu."
+            message += "\nSekarang kita masuk ke sessi tanya jawab ya"
+            message += "\nKeren manis, kamu cukup pilih jawaban dengan ketik A, B, ayau C ya..."
+            message += "\nSoal pertama, siapa yang paling ganteng di FIND"
+            message += "\nA. Alif"
+            message += "\nB. Martin"
+            message += "\nC. Millenio"
+            step[event.source.user_id] = 1
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message))
+        else:
+            message = "Hallo apa kamu keren? kalo iya, cuma karen yang bisa jawab pertanyaan ini."
+            message += "\napa kepanjangan dari FIND ?"
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=message))
             
                  
 @app.route("/gift", methods=['GET'])
