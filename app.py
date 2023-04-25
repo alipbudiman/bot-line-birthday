@@ -27,9 +27,9 @@ app = Flask(__name__)
 CORS(app)
 
 
-AUTH_ACCESS = 'JmTmVCOK07ASzl4Q9a3zHBbThawecQ3jMFrlYx8fcvlX1AM2yGN7tWm/Xf1L40wzdxJCzGA3mOD38QKyBkp2iwsb2jU+F5SrwzLeb6HgwJprmtqIpKN+X4Syw5WBL1mSkknOCAIggTm+sYtQfA3EMAdB04t89/1O/w1cDnyilFU='
+AUTH_ACCESS = 'YOUR_CHANNEL_ACCESS_TOKEN'
 line_bot_api = LineBotApi(AUTH_ACCESS)
-handler = WebhookHandler('b4107213c0cbd7306a04142de4a9be4d')
+handler = WebhookHandler('YOUR_CHANNEL_SECRET')
 
 step = livejson.File("db.json", True, True, 4)
 
